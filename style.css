@@ -9,7 +9,8 @@
   */
   
   html {
-    background-color: #9ea1b4;
+    background-color: black;
+    /* #9ea1b4; */
     font-size: 16px;
     min-width: 300px;
     overflow-x: hidden;
@@ -27,14 +28,15 @@
   body {
     margin: 0;
     padding: 0;
-  
+    color: white;
     font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
     font-weight: 400;
     line-height: 1.5;
-    background-color: #ffffff00;
+    background-color: black;
+    /* #ffffff00; */
   }
   
-  
+
   a {
     display: inline-block;
     text-decoration: none;
@@ -57,7 +59,8 @@
     flex-direction: column;
     margin: 0;
     flex: 1;
-    background-color: #7592e2;
+    background-color: black;
+    /* #7592e2; */
   }
   
   .container {
@@ -78,11 +81,12 @@
   
   .header h1 {
     display: block;
-  
+    text-align: center;
 
-    background-color: #e3eae6;
-    color: #4a4a4a;
-  
+    background-color: rgba(97, 245, 129, 0.76);
+    /* #e3eae6; */
+    color: white;
+    box-shadow: -10px 10px rgb(235, 221, 221);
 
     border-radius: 6px;
     font-size: 1.5rem;
@@ -90,34 +94,52 @@
     margin:0; 
   
   
-    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    /* box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%); */
   }
   
+  /*.desc{
+    width: 80%;
+  }*/
   
+  #data_box {
+    min-height: 100%;
+    min-width: 100%;  
+    
+  }
+
   .middle {
-    background-color: rgba(239, 239, 239, 0.40);
+    background-color: rgba(97, 245, 129, 0.76);
     border: 2px solid;
     border-radius: 4px;
   
     width: fit-content;
     height:fit-content;
     padding: 1.5rem;
-    margin: 5;
+    margin: 0;
     margin-top: 30px;
+    box-shadow: -5px 5px rgb(227, 242, 243);
   }
 
   .content {
-    justify-content:right;
+    display: inline-flex;
+    justify-content: space-evenly;
+    
   }
   #left {
-    height: 600px;
-    max-width: 40%;
-    display: inline-block;
+    height: 500px;
+    max-width: 35%;
+    display:inline-block;
   }
   #right {
-    height: 600px;
-    max-width: 40%;
+    
+    width: 60%;
+    height: 500px;
     display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+    
+    
   }
 
   
@@ -125,7 +147,7 @@
       /* Rules in here will only apply when a screen is the correct size */
       /* check it out by using your developer tools to shrink your screen-size */
       .container {
-        background-color: #ddb892;
+        background-color: rgba(239, 239, 239, 0.40);
         flex-direction: column;
         justify-content: stretch;
         align-items: center;
