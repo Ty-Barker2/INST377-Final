@@ -1,6 +1,6 @@
 
           
- function loadChart(data) {
+ function loadChart(data, year='2020') {
  
     
   let chart = new CanvasJS.Chart("right", {
@@ -9,7 +9,7 @@
     animationEnabled: true,
     exportEnabled: false,
     title: {
-      text: "PG County 2020 spending",
+      text: `PG County ${year} spending`,
       
     },
     
@@ -35,27 +35,6 @@
       indexLabelPlacement:'inside',
       dataPoints: data
          
-            // {label: 'CENTRAL SERVICES', y: 13.246724},
-            // {label: 'POLICE', y: 1.780956}, 
-            // {label: 'HEALTH', y: 8.243691},
-            // {label: 'PUBLIC WORKS & TRANSPORTATION', y: 21.942255},
-            // {label: 'ENVIRONMENT', y: 21.06482},
-            // {label: 'FIRE/EMS', y: 4.026177},
-            // {label: 'INFORMATION TECHNOLOGY', y: 0.897357},
-            // {label: 'PERMITTING, INSPECTIONS & ENFORCEMENT', y: 1.408491},
-            // {label: "ORPHAN'S COURT", y: 0.001324},
-            // {label: 'CIRCUIT COURT', y: 0.516202},
-            // {label: 'FINANCE', y: 0.32401},
-        // { label: "Sugar - Maroon 5", y: 3.25 },
-        // { label: "Sorry - Justin Bieber", y: 3.32 },
-        // { label: "Johny Johny Yes Papa", y: 3.63 },
-        // { label: "Gangnam Style", y: 3.72 },
-        // { label: "Uptown Funk", y: 3.90 },
-        // { label: "Masha and the Bear", y: 4.32 },
-        // { label: "See You Again", y: 4.66 },
-        // { label: "Shape of You", y: 4.91 },
-        // { label: "Baby Shark Dance", y: 6.13 },
-        // { label: "Despacito", y: 6.88 }
       
     }]
   });
@@ -93,8 +72,10 @@ function getData(data){
 
 async function mainEvent() {
   //chart = BarChart()
-  const loadDataButton = document.querySelector('#generate')
-  const loadChartButton = document.querySelector('#chart')
+  const loadDataButton = document.querySelector('#generate');
+  const loadChartButton = document.querySelector('#chart');
+
+  const changeYearButton = document.querySelector('#year-select');
   
 
   // let graphData20 = {}
@@ -104,44 +85,62 @@ async function mainEvent() {
   loadDataButton.addEventListener('click', async (event) => {
     console.log('clicked')
 
-    //getting the data from the api for 2021
+    //getting the data from the api for 2020
     const result20 = await fetch('https://data.princegeorgescountymd.gov/resource/uh6s-izyj.json?$limit=56213');
     const storedList20 = await result20.json();
     //change to object list
     const temp20 = getData(JSON.stringify(storedList20))
     console.log(temp20)
     // console.log('here')
-    localStorage.setItem('storedData20', JSON.stringify(temp20))
+    localStorage.setItem('storedData2020', JSON.stringify(temp20))
     console.table(storedList20)
     console.log('2020 data')
 
     //getting the data from the api for 2021
-    const result21 = await fetch('https://data.princegeorgescountymd.gov/resource/rh7w-bmhm.json?$limit=10000');
+    const result21 = await fetch('https://data.princegeorgescountymd.gov/resource/rh7w-bmhm.json?$limit=30000');
     const storedList21 = await result21.json();
-    //change to parsed table
-    localStorage.setItem('storedData21', JSON.stringify(storedList21))
-    console.table(storedList21);
-    //console.log(storedList21.agency)
-    console.log('2021 data');
+    //change to object list
+    const temp21 = getData(JSON.stringify(storedList21))
+    console.log(temp21)
+    // console.log('here')
+    localStorage.setItem('storedData2021', JSON.stringify(temp21))
+    console.table(storedList21)
+    console.log('2021 data')
+
+     //getting the data from the api for 2022
+     const result22 = await fetch('https://data.princegeorgescountymd.gov/resource/jh2p-ym6a.json?$limit=57000');
+     const storedList22 = await result22.json();
+     //change to object list
+     const temp22 = getData(JSON.stringify(storedList22))
+     console.log(temp22)
+     // console.log('here')
+     localStorage.setItem('storedData2022', JSON.stringify(temp22))
+     console.table(storedList22)
+     console.log('2022 data')
     
-    //getting the data for the years
-    // graphData20 = getData(localStorage.getItem('storedData20'));
-    // graphData21 = getData(localStorage.getItem('storedData21'));
     
-    // localStorage.setItem('graphd',toString(graphData20))
-    // console.log(graphData20)
   })
   
   loadChartButton.addEventListener('click', async (event) => {
     console.log('chart loaded');
-    console.log(JSON.parse(localStorage.getItem('storedData20')));
+    console.log(JSON.parse(localStorage.getItem('storedData2020')));
 
-    const usethis = JSON.parse(localStorage.getItem('storedData20'));
+    const usethis = JSON.parse(localStorage.getItem('storedData2020'));
     
     loadChart(usethis);
   })
 
+  changeYearButton.addEventListener('change', (event) => {
+    console.log('year changed')
+    console.log(event.target.value);
+    let year1 = event.target.value;
+
+    if (year1 == "year"){year1 = "2020"}
     
+    const chartData = JSON.parse(localStorage.getItem(`storedData${year1}`));
+
+    loadChart(chartData,year1)  // fill in the chart data with the data from the correct year chosen in the dropdown menu
+  })
 
 }
 

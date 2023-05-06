@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Grammy Analysis</title>
+	<title>Spending Analysis</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -23,11 +23,19 @@
             <div class="content">
                 <div class="middle" id="left">
                     <h2>API</h2>
-                    <p>We will be using the <a href="https://data.princegeorgescountymd.gov/browse?category=Finance+and+Budget">Prince Georges county Web API</a> to access data on Department spending. -------------------------------------------------- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                         anim id est laborum.</p>
+                    <p>We will be using the <a href="https://data.princegeorgescountymd.gov/browse?category=Finance+and+Budget">Prince Georges county Web API</a> to access data on Department spending. -------------------------------------------------- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed </p>
+                         
                          <button type="button" id="generate">Generate data</button>
                          <button type="button" id="chart">Generate chart</button>
-                </div>
+                         <label for="years">Choose a Year:</label>
+                         <select name="year-select" id="year-select">
+                                 <option  value="year" selected>year</option>
+                                 <option  value="2020">2020</option>
+                                 <option  value="2021">2021</option>
+                                 <option  value="2022">2022</option>
+                         </select>
+                         
+                        </div>
                 <div id="right" class="middle" >
                     <!--<h2>Data Visualization</h2>-->
                     
