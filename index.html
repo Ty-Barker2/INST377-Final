@@ -1,88 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Spending Analysis</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <title>Spending Analysis</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
-	<!-- Add links to CSS files and JS libraries here -->
-</head>
-<body>
+    <!-- Add links to CSS files and JS libraries here -->
+  </head>
+  <body>
     <div class="wrapper">
-        <header class="header">
-                <h1>Analysis of PG county Government spending</h1>
+      <header class="header">
+        <h1>Analysis of PG county Government spending</h1>
 
-            <!-- Add any other header elements here -->
-        </header>
-        <div class="container">
-            <div class="middle"id ="desc">
-                <h2>Information Problem</h2>
-                <p>Whether it be a county official or a person concerned about the spending done by their local government, as of right now it is not an easy thing to look at quickly, and if you are trying to look at the spending of PG county on individual agencies it is not a thing that is easily done.The goal of 
-                    this project then is to use the PG county API and give users the ability to analyze spending over different years for specific departments. This way suggestions or alterations to the pg county budget could be made upon review.</p>
-            </div>
-            <div class="content">
-                <div class="middle" id="left">
-                    <h2>API</h2>
-                    <img class="pic" src="Screenshot 2023-05-11 220716.png" alt="Pg County api picture">
-                    <p>using the <a href="https://data.princegeorgescountymd.gov/browse?category=Finance+and+Budget">Prince Georges county Web API</a> to access data on Department spending. The graph on the right is an overall proportional display of the annual county spending
-                        please use the buttons to generate the chart, and the dropdown menu to change the year that is displayed with the chart.  </p>
-                         
-                         <button type="button" class="button" id="generate">refresh data</button>
-                         <button type="button" class="button" id="chart">Generate chart</button>
-                         <label for="years">Choose a Year:</label>
-                         <select name="year-select" class="button"  id="year-select">
-                                 <option  value="year" selected>year</option>
-                                 <option  value="2020">2020</option>
-                                 <option  value="2021">2021</option>
-                                 <option  value="2022">2022</option>
-                         </select>
-                         
-                        </div>
-                <div id="right" class="middle" >
-                    <!--<h2>Data Visualization</h2>-->
-                    
-                    <!-- <div id ="data_box">
+        <!-- Add any other header elements here -->
+      </header>
+      <div class="container">
+        <div class="middle" id="desc">
+          <h2>Information Problem</h2>
+          <p>
+            Whether it be a county official or a person concerned about the
+            spending done by their local government, as of right now it is not
+            an easy thing to look at quickly, and if you are trying to look at
+            the spending of PG county on individual agencies it is not a thing
+            that is easily done.The goal of this project then is to use the PG
+            county API and give users the ability to analyze spending over
+            different years for specific departments. This way suggestions or
+            alterations to the pg county budget could be made upon review.
+          </p>
+        </div>
+        <div class="content">
+          <div class="middle" id="left">
+            <h2>API</h2>
+            <img
+              class="pic"
+              src="Screenshot 2023-05-11 220716.png"
+              alt="Pg County api picture"
+            />
+            <p>
+              using the
+              <a
+                href="https://data.princegeorgescountymd.gov/browse?category=Finance+and+Budget"
+                >Prince Georges county Web API</a
+              >
+              to access data on Department spending. The graph on the right is
+              an overall proportional display of the annual county spending
+              please use the buttons to generate the chart, and the dropdown
+              menu to change the year that is displayed with the chart.
+            </p>
+
+            <button type="button" class="button" id="generate">
+              refresh data
+            </button>
+            <button type="button" class="button" id="chart">
+              Generate chart
+            </button>
+            <label for="years">Choose a Year:</label>
+            <select name="year-select" class="button" id="year-select">
+              <option value="year" selected>year</option>
+              <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
+            </select>
+          </div>
+          <div id="right" class="middle">
+            <!--<h2>Data Visualization</h2>-->
+
+            <!-- <div id ="data_box">
 
                     </div> -->
-                    <!--<button type="button" id="generate">Generate data</button>
+            <!--<button type="button" id="generate">Generate data</button>
                     -->
-                </div>
-            </div>
-           
-            <div class="middle_info ">
-                <div class="left_middle">
-                    <p id="mid">
-                        For more proper inspection of the data i have made it so that we could 
-                        look at spending data more closely. But due to the large amount of education spending
-                        it has been seperated from the spending data of the other agancy's and displayed in the area on the right <br>
-                        Below this area there is a graph that is displayed with the press of a that showcases the top five areas of spending for the county in 2020
-                        and the amounts spent in these areas for the next two years.
-                    </p>
-                    <!-- <button type="button" class="button" id="education">Generate chart</button> -->
-                </div>
-                <div class="middle" id="right_middle">
-                    <h1 id="help">press <br> "compare years" <br>Below for charts</h1>
-                </div>
-            </div>
-            
-            <div class="bottom_graph middle">
-                <button type="button" class="button" id="compare">compare years top5</button>
-                <button type="button" class="button" id="compare_all">compare years all</button>
-                <div class="middle" id="graphBox">
+          </div>
+        </div>
 
-                </div>
-            </div>
-        </div >
-        <footer class="middle" id="foot">
-            <p class="git"><a href="https://github.com/Ty-Barker2/INST377-Final">Tyler Barkers project GitHub</a>   </p>
-            <button type="button" class="button" id="pchange"><a href="index1.html">About Page</a></button>
-           
-        </footer>
-       
+        <div class="middle_info">
+          <div class="left_middle">
+            <p id="mid">
+              For more proper inspection of the data i have made it so that we
+              could look at spending data more closely. But due to the large
+              amount of education spending it has been seperated from the
+              spending data of the other agancy's and displayed in the area on
+              the right <br />
+              Below this area there is a graph that is displayed with the press
+              of a that showcases the top five areas of spending for the county
+              in 2020 and the amounts spent in these areas for the next two
+              years.
+            </p>
+            <!-- <button type="button" class="button" id="education">Generate chart</button> -->
+          </div>
+          <div class="middle" id="right_middle">
+            <h1 id="help">
+              press <br />
+              "compare years" <br />Below for charts
+            </h1>
+          </div>
+        </div>
 
+        <div class="bottom_graph middle">
+          <button type="button" class="button" id="compare">
+            compare years top5
+          </button>
+          <button type="button" class="button" id="compare_all">
+            compare years all
+          </button>
+          <div class="middle" id="graphBox"></div>
+        </div>
+      </div>
+      <footer class="middle" id="foot">
+        <p class="git">
+          <a href="https://github.com/Ty-Barker2/INST377-Final"
+            >Tyler Barkers project GitHub</a
+          >
+        </p>
+        <button type="button" class="button" id="pchange">
+          <a href="index1.html">About Page</a>
+        </button>
+      </footer>
     </div>
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
